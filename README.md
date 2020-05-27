@@ -38,5 +38,9 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 
 Now to generate the ultrasound signal the Trig pin must be HIGH for 10µs which will send out an 8 cycle sonic burst which will travel at the speed sound and it will be received in the Echo Pin. The Echo Pin will output the time in microseconds the sound wave traveled. The time duration between transmission and reception can be used to determine the distance to the object as the speed of sound is known.
 
+![uploads2ftmp2f0e8762c9-13ef-48e3-8ee9-838c7f24ca8d2f2_ultrasonic_module_timing_diagram_IoXUGXtipu](https://user-images.githubusercontent.com/63898803/83060198-b9167d80-a078-11ea-8b52-48c3cdfcbdfb.jpg)
+  
+  
+    *Timing diagram of HC-SR04 Ultrasonic Sensor*
 
 
