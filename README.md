@@ -26,4 +26,17 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 2. The transmitted signal travels through air and reflects when incident on the surface of the object (in this case our hand).
 3. The reciever (Echo pin) recieves the reflected signal.
 
+## Pin Out Diagram of HC SR04 Ultrasonic Sensor:
+![hc-sr04-ultrasonic-sensor-module-500x500](https://user-images.githubusercontent.com/63898803/83054937-c92a5f00-a070-11ea-8b26-05271b1ce2f5.jpg)
+
+| Pins | Usage |
+|:----:|:--------------:|
+| VCC | +5V |
+| Trig | TRIGGER(Input) |
+| Echo | ECHO (Output) |
+| GND | GROUND |
+
+Now to generate the ultrasound signal the Trig pin must be HIGH for 10µs which will send out an 8 cycle sonic burst which will travel at the speed sound and it will be received in the Echo Pin. The Echo Pin will output the time in microseconds the sound wave traveled. The time duration between transmission and reception can be used to determine the distance to the object as the speed of sound is known.
+
+
 
