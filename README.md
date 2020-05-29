@@ -26,7 +26,7 @@ Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens
 # Working Principle
 
 <img src = "https://user-images.githubusercontent.com/63898803/83060901-c7b16480-a079-11ea-976e-b8040626194e.jpg" width = 650 height = 400>
-*Figure of transmitted and reflected ultrasound waves from the object.*
+
 
 
 The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. The sensor uses sonar to determine the distance to an object.
