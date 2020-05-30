@@ -52,8 +52,6 @@ To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs. The t
 
 The code can be found at [arduino.ino](https://github.com/Gauhati-University/touchless-water-disp/blob/master/Program/arduino/arduino.ino).
 
-### Working of the code
-
 #### Pins used:
  
 The variables for the trigger and echo pin called **trig** and **echo**, respectively. The trigger pin of HC SR04 is connected to digital pin 9 of arduino, and the echo pin is connected to digital pin 8. The variable for controllong the state of the solenoid valve is called Valve and is connected to digital Pin 11:
@@ -126,7 +124,7 @@ Now, the `echo` pin is read which recieves a HIGH pulse from the **Echo pin** of
  The circuit is implemented on a custom development board based on Arduino Pro Mini.
 
  ## Credits
- The contributors of this project are : Utpal Sharma, Rajdeep Choudhury, Nairit Barkataki, Tilak Deka and @Sharmist13.
+ The contributors of this project are : Utpal Sharma, Rajdeep Choudhury, Nairit Barkataki, Tilak Deka and Sharmistha Mazumdar.
  
  ## Contributing
  [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
@@ -140,7 +138,7 @@ This project adheres to a [Code of Conduct][code-of-conduct]. By participating, 
 See [Contributing](CONTRIBUTING.md) for more details.
 
  
- # License
+ ## License
  [![license-apache](https://img.shields.io/badge/license-Apache%202.0-green)](https://github.com/Gauhati-University/touchless-water-disp/blob/master/LICENSE) 
  
 This work is licensed under the open source [Apache License 2.0](LICENSE)
