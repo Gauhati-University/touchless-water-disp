@@ -5,11 +5,13 @@
 Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens and closes a faucet so that we can wash our hands safely and prevent spread of coronavirus disease. For detecting our hand when placed just below the valve we use an ultrasonic sensor and that leads to opening the valve.
 
 ## Materials Required
-* Arduino UNO
+* Arduino UNO / Pro Mini (5V, 16MHz)
 * HC-SR04 ultrasonic sensor
 * Transistor: BC547
 * Diode: 1N4001
-* Resistor: 220 ohm
+* Resistors and Capacitors
+* Relay (5V or 12V)
+* Solenoid Valve
 * Power Supply: +5V DC (from Arduino),+12V DC and 230V AC
 * Power Plugs
 * Connecting Wires
