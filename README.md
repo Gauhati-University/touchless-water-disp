@@ -8,18 +8,18 @@ Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens
 * Transistor: BC547
 * Diode: 1N4001
 * Resistor: 220 ohm
-* Power Supply: +5V DC,+12V DC and 230V AC
+* Power Supply: +5V DC (from Arduino),+12V DC and 230V AC
 * Power Plugs
 * Connecting Wires
 * PCB
 
 # Circuit Diagram 
 
-## Wire Connections of Arduino and Ultrasonic Sensor
+### Wire Connections of Arduino and Ultrasonic Sensor
 <img src = "https://user-images.githubusercontent.com/63898803/83017119-ba2bb880-a040-11ea-8c0a-70eec75fd980.jpeg" width=650 height = 400>
 
 
-## Schematic Diagram
+### Schematic Diagram
 <img src = "https://user-images.githubusercontent.com/63898803/83017678-b0568500-a041-11ea-992e-c3f2fd3a47b7.jpeg" width = 650 height= 650>
 
 
@@ -50,64 +50,11 @@ Now to generate the ultrasound signal the Trig pin must be HIGH for 10µs which 
 
 # Code
 
-The following code needs to be uploaded to the Arduino IDE.
+The code in [arduino.uno](https://github.com/Gauhati-University/touchless-water-disp/blob/master/Program/arduino/arduino.ino) needs to be uploaded to the Arduino IDE.
 
-```
-/*
-* Touchless Water Dispenser using Ultrasonic Sensor HC-SR04 and Arduino
-*
-* by Nairit Barkataki, Gauhati University
-* nairitb@gauhati.ac.in
-*
-*/
-// define pins numbers
-const int trigPin = 9;
-const int echoPin = 8;
-const int Valve = 11;
+## Working of the code
 
-// define variables
-long duration;
-int distance;
-void setup() {
-  
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  pinMode(Valve, OUTPUT); // Configure the pin connected to the Valve as OUTPUT
-  Serial.begin(9600); // Starts the serial communication
-}
-
-void loop() {
-  // Clear the trigPin
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  
-  // Set the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  
-  // Read the echoPin, return the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-  
-  // Calculate the distance
-  distance= duration*0.034/2;
-
-  //Condition for opening Water Valve
-  if(distance>10 && distance<50){
-    digitalWrite(Valve, LOW); //Turns on the solenoid water valve
-  }
-  
-  else{
-    digitalWrite(Valve, HIGH); //Turns off the solenoid water valve
-   }
-  
-  // Print the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.println(distance);
-}
-```
-
-## working of the code
+#### Defining the pins to be used:
  
 The variables for the trigger and echo pin called trigPin and echoPin, respectively. The trigger pin is connected to digital Pin 9, and the echo pins is connected to digital Pin 8. The variable for solenoid valve is called Valve and is connected to digital Pin 11:
 ```
@@ -115,19 +62,24 @@ const int trigPin = 9;
 const int echoPin = 8;
 const int Valve = 11;
 ```
+
+#### Defining the variable required:
 Also two variables `duration` and `distance` are define. The `duration` variable will save the time between emission and reception of signal and `distance` variable will save the distance between the Ultrasonic sensor and the object which is calculated using the `duration` variable:
 ```
 long duration;
 int distance;
 ```
+
+#### Defining the setup() function:
 In the `setup()` function, the `triPin` is set as Output , the `echoPin` is set as Input and the `Valve` pin as Output.
-Also the serial port is intialized at a baud rate of 9600:
+
 ```
 pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
 pinMode(echoPin, INPUT); // Sets the echoPin as an Input
 pinMode(Valve, OUTPUT); // Configure the pin connected to the Valve as OUTPUT
-Serial.begin(9600); // Starts the serial communication
 ```
+
+#### Defining the loop() function:
 In the loop() funcion,the Ultrasonic sensor is triggered by sending a HIGH pulse of 10 microseconds through the `triPin`. But, before that,a short LOW pulse is send through it to ensure that we get a clean HIGH pulse:
 ```
  // Clear the trigPin
@@ -139,14 +91,20 @@ In the loop() funcion,the Ultrasonic sensor is triggered by sending a HIGH pulse
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
  ```
- Now, the `echoPin` is read which recieves a HIGH pulse from the **Echo pin** of the sensor whose duration is equal to the duration of time (in mircosecond) between transmission and reception of its echo from the object and the assigned to the variable `duration`.
+ 
+#### Reading the Echo pin of the sensor:
+Now, the `echoPin` is read which recieves a HIGH pulse from the **Echo pin** of the sensor whose duration is equal to the duration of time (in mircosecond) between transmission and reception of its echo from the object and the assigned to the variable `duration`.
  ```
  duration = pulseIn(echoPin, HIGH);
  ```
+ 
+ #### Calculating the distance:
  The distance between the Object and the sensor is calculated using the formula below:
  ```
  distance= duration*0.034/2;
  ```
+ 
+ #### Condition to open the valve:
  Now, a range of distance is given as a condition between which the object should be placed for the valve to open. This condition could be set according to requirement.
  ```
   if(distance>10 && distance<50){
@@ -157,17 +115,27 @@ In the loop() funcion,the Ultrasonic sensor is triggered by sending a HIGH pulse
     digitalWrite(Valve, HIGH); //Turns off the solenoid water valve
    }
  ```
- Lastly, the distance between the object and the sensor is printed on the Serial monitor:
- ```
-  Serial.print("Distance: ");
-  Serial.println(distance);
-  ```
+
  # Credits
  
  
  
  
  # Contributing
+ Contributions to this project are released to the public under the project's open source license.
+
+This project adheres to a Code of Conduct. By participating, you are expected to honor this code.
+
+This library's only job is to decide which markup format to use and call out to an external library to convert the markup to HTML (see the README for more information on how markup is rendered on GitHub.com).
+
+If you are having an issue with:
+
+Syntax highlighting - see github/linguist
+Markdown on GitHub - contact support@github.com
+Styling issues on GitHub - see primer-markdown module in the primer/primer-css repository
+Anything else - search open issues or create an issue and and we'll help point you in the right direction.
  
+ # License
  
+ To the extent possible under law, Matias Singers has waived all copyright and related or neighboring rights to this work
  
