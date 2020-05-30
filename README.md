@@ -1,7 +1,7 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 # Touchless Water Dispenser
-## Project Description
+## Description
 Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens and closes a faucet so that we can wash our hands safely and prevent spread of coronavirus disease. For detecting our hand when placed just below the valve we use an ultrasonic sensor and that leads to opening the valve.
 
 ## Materials Required
@@ -58,10 +58,10 @@ The code in [arduino.uno](https://github.com/Gauhati-University/touchless-water-
 
 #### Defining the pins to be used:
  
-The variables for the trigger and echo pin called trigPin and echoPin, respectively. The trigger pin is connected to digital Pin 9, and the echo pins is connected to digital Pin 8. The variable for solenoid valve is called Valve and is connected to digital Pin 11:
+The variables for the trigger and echo pin called trig and echo, respectively. The trigger pin is connected to digital Pin 9, and the echo pins is connected to digital Pin 8. The variable for solenoid valve is called Valve and is connected to digital Pin 11:
 ```
-const int trigPin = 9;
-const int echoPin = 8;
+const int trig = 9;
+const int echo = 8;
 const int Valve = 11;
 ```
 
@@ -73,31 +73,31 @@ int distance;
 ```
 
 #### Defining the setup() function:
-In the `setup()` function, the `triPin` is set as Output , the `echoPin` is set as Input and the `Valve` pin as Output.
+In the `setup()` function, the `triPin` is set as Output , the `echo` is set as Input and the `Valve` pin as Output.
 
 ```
-pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+pinMode(trig, OUTPUT); // Sets the trig as an Output
+pinMode(echo, INPUT); // Sets the echo as an Input
 pinMode(Valve, OUTPUT); // Configure the pin connected to the Valve as OUTPUT
 ```
 
 #### Defining the loop() function:
 In the loop() funcion,the Ultrasonic sensor is triggered by sending a HIGH pulse of 10 microseconds through the `triPin`. But, before that,a short LOW pulse is send through it to ensure that we get a clean HIGH pulse:
 ```
- // Clear the trigPin
-  digitalWrite(trigPin, LOW);
+ // Clear the trig
+  digitalWrite(trig, LOW);
   delayMicroseconds(2);
   
-  // Set the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
+  // Set the trig on HIGH state for 10 micro seconds
+  digitalWrite(trig, HIGH);
   delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
+  digitalWrite(trig, LOW);
  ```
  
 #### Reading the Echo pin of the sensor:
-Now, the `echoPin` is read which recieves a HIGH pulse from the **Echo pin** of the sensor whose duration is equal to the duration of time (in mircosecond) between transmission and reception of its echo from the object and the assigned to the variable `duration`.
+Now, the `echo` is read which recieves a HIGH pulse from the **Echo pin** of the sensor whose duration is equal to the duration of time (in mircosecond) between transmission and reception of its echo from the object and the assigned to the variable `duration`.
  ```
- duration = pulseIn(echoPin, HIGH);
+ duration = pulseIn(echo, HIGH);
  ```
  
  #### Calculating the distance:
@@ -124,15 +124,17 @@ Now, the `echoPin` is read which recieves a HIGH pulse from the **Echo pin** of 
  ## Credits
  The contributors of this project are : Utpal Sharma, Rajdeep Choudhury, Nairit Barkataki, Tilak Deka and Sharmistha Mazumdar.
  
- 
- 
  ## Contributing
- Contributions to this project are released to the public under the project's open source license.
+ Contributions to this project are releasedto the public under the [project's open source license](LICENSE).
 
-This project adheres to a Code of Conduct. By participating, you are expected to honor this code.
+This project adheres to a [Code of Conduct][code-of-conduct]. By participating, you are expected to honor this code.
+
+[code-of-conduct]: CODE_OF_CONDUCT.md
+
+See [Contributing](CONTRIBUTING.md) for more details.
 
  
  # License
  
-[Lincense](https://github.com/Gauhati-University/touchless-water-disp/blob/master/LICENSE) contains rights to this work
+[License](https://github.com/Gauhati-University/touchless-water-disp/blob/master/LICENSE) contains rights to this work
  
