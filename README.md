@@ -1,4 +1,4 @@
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md) [![made-with-arduino](https://img.shields.io/badge/Made%20with-Arduino-blue)](https://www.arduino.cc/) [![license-apache](https://img.shields.io/badge/license-Apache%202.0-green)](https://github.com/Gauhati-University/touchless-water-disp/blob/master/LICENSE)
+[![Open Source Love png3](https://badges.frapsoft.com/os/v3/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/) [![made-with-arduino](https://img.shields.io/badge/Made%20with-Arduino-blue)](https://www.arduino.cc/)
 
 # Touchless Water Dispenser
 ## Description
@@ -123,6 +123,7 @@ Now, the `echo` pin is read which recieves a HIGH pulse from the **Echo pin** of
  The contributors of this project are : Utpal Sharma, Rajdeep Choudhury, Nairit Barkataki, Tilak Deka and @Sharmist13.
  
  ## Contributing
+ [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
  Contributions to this project are releasedto the public under the [project's open source license](LICENSE).
 
 This project adheres to a [Code of Conduct][code-of-conduct]. By participating, you are expected to honor this code.
@@ -133,6 +134,7 @@ See [Contributing](CONTRIBUTING.md) for more details.
 
  
  # License
+ [![license-apache](https://img.shields.io/badge/license-Apache%202.0-green)](https://github.com/Gauhati-University/touchless-water-disp/blob/master/LICENSE) 
  
 This work is licensed under the open source [Apache License 2.0](LICENSE)
  
