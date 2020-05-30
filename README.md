@@ -126,7 +126,7 @@ Now, the `echo` pin is read which recieves a HIGH pulse from the **Echo pin** of
  The circuit is implemented on a custom development board based on Arduino Pro Mini.
 
  ## Credits
- The contributors of this project are : Utpal Sharma, Rajdeep Choudhury, Nairit Barkataki, Tilak Deka and Sharmistha Mazumdar.
+ The contributors of this project are : Sharmistha Mazumdar, Rajdeep Choudhury, Nairit Barkataki, Tilak Deka, and Utpal Sharma.
  
  ## Contributing
  [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
