@@ -18,14 +18,16 @@ Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens
 ## Circuit Diagram 
 
 ### Wire Connections of Arduino and Ultrasonic Sensor
-<img src = "https://user-images.githubusercontent.com/63898803/83017119-ba2bb880-a040-11ea-8c0a-70eec75fd980.jpeg" width=650>
+<img src = "https://user-images.githubusercontent.com/63898803/83017119-ba2bb880-a040-11ea-8c0a-70eec75fd980.jpeg" width=650> 
 
 
 ### Schematic Diagram
-<img src = "https://user-images.githubusercontent.com/63898803/83017678-b0568500-a041-11ea-992e-c3f2fd3a47b7.jpeg" width = 650>
+<img src = "https://user-images.githubusercontent.com/63898803/83017678-b0568500-a041-11ea-992e-c3f2fd3a47b7.jpeg" width = 650> 
 
 
 ## Working Principle
+
+### Sensor:
 
 <img src = "https://user-images.githubusercontent.com/63898803/83060901-c7b16480-a079-11ea-976e-b8040626194e.jpg" width = 650>
 
@@ -33,7 +35,7 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 1. The transmitter transmit an high frequency signal of 40kHz.
 2. The transmitted signal travels through air and reflects when incident on the surface of the object (in this case our hand).
 3. The reciever recieves the reflected signal.
-
+ 
 ### Pin Out Diagram of HC SR04 Ultrasonic Sensor:
 <img src = "https://user-images.githubusercontent.com/63898803/83054937-c92a5f00-a070-11ea-8b26-05271b1ce2f5.jpg" width = 350>
 
@@ -44,9 +46,19 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 | Echo | ECHO (Output) |
 | GND | GROUND |
 
-To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs. The transmitter will then send out an 8 cycle sonic burst which will travel at the speed of sound and will be received by the receiver. The **Echo** Pin emits a pulse whose width is in proportion to the distance travelled by the sound wave. The time duration between transmission and reception can be used to determine the distance to the object as the speed of sound is known.
+To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs.The transmitter will then send out an 8 cycle sonic burst which will travel at the speed of sound and will be received by the receiver. The **Echo** Pin emits a pulse whose width is in proportion to the distance travelled by the sound wave. The time duration between transmission and reception can be used to determine the distance to the object as the speed of sound is known.
 
 ![uploads2ftmp2f0e8762c9-13ef-48e3-8ee9-838c7f24ca8d2f2_ultrasonic_module_timing_diagram_IoXUGXtipu](https://user-images.githubusercontent.com/63898803/83060198-b9167d80-a078-11ea-8b52-48c3cdfcbdfb.jpg)
+
+### Valve:
+A [solenoid valve](https://tameson.com/solenoid-valve-types.html) is a electrically controlled valve. In absence of power, the solenoid is normally closed. The solenoid has an electromagnetically inductive coil (A) around an iron core at the center called the plunger (E)as shown in figure.The shading ring (C) prevents vibration and humming in AC coils.
+<img src = "https://cdn2.tameson.com/var/assets/Articles/general/xsolenoid-valve-components.png.pagespeed.ic.WODEOUdhFI.webp" width =400>
+ 1. When current flows through the solenoid, the coil is energized and creates a magnetic field. 
+ 2. This creates a magnetic attraction with the plunger, moving it and overcoming the spring (D) force. 
+ 3. If the valve is closed, the plunger is lifted so that the seal (F) opens the orifice and allows the flow of the media through the valve.
+ 
+ ### Relay:
+ Relay is an Electronic switch.It can connect or disconnect two circuits depending upon the
 
 ## Code
 
