@@ -1,8 +1,8 @@
 # Touchless Water Dispenser
-
+## Project Description
 Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens and closes a faucet so that we can wash our hands safely and prevent spread of coronavirus disease. For detecting our hand when placed just below the valve we use an ultrasonic sensor and that leads to opening the valve.
 
-# Materials Required
+## Materials Required
 * Arduino UNO
 * HC-SR04 ultrasonic sensor
 * Transistor: BC547
@@ -13,7 +13,7 @@ Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens
 * Connecting Wires
 * PCB
 
-# Circuit Diagram 
+## Circuit Diagram 
 
 ### Wire Connections of Arduino and Ultrasonic Sensor
 <img src = "https://user-images.githubusercontent.com/63898803/83017119-ba2bb880-a040-11ea-8c0a-70eec75fd980.jpeg" width=650 height = 400>
@@ -23,7 +23,7 @@ Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens
 <img src = "https://user-images.githubusercontent.com/63898803/83017678-b0568500-a041-11ea-992e-c3f2fd3a47b7.jpeg" width = 650 height= 650>
 
 
-# Working Principle
+## Working Principle
 
 <img src = "https://user-images.githubusercontent.com/63898803/83060901-c7b16480-a079-11ea-976e-b8040626194e.jpg" width = 650 height = 400>
 
@@ -34,7 +34,7 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 2. The transmitted signal travels through air and reflects when incident on the surface of the object (in this case our hand).
 3. The reciever (Echo pin) recieves the reflected signal.
 
-## Pin Out Diagram of HC SR04 Ultrasonic Sensor:
+### Pin Out Diagram of HC SR04 Ultrasonic Sensor:
 <img src = "https://user-images.githubusercontent.com/63898803/83054937-c92a5f00-a070-11ea-8b26-05271b1ce2f5.jpg" width = 350 height = 350>
 
 | Pins | Usage |
@@ -48,11 +48,11 @@ Now to generate the ultrasound signal the Trig pin must be HIGH for 10µs which 
 
 ![uploads2ftmp2f0e8762c9-13ef-48e3-8ee9-838c7f24ca8d2f2_ultrasonic_module_timing_diagram_IoXUGXtipu](https://user-images.githubusercontent.com/63898803/83060198-b9167d80-a078-11ea-8b52-48c3cdfcbdfb.jpg)
 
-# Code
+## Code
 
 The code in [arduino.uno](https://github.com/Gauhati-University/touchless-water-disp/blob/master/Program/arduino/arduino.ino) needs to be uploaded to the Arduino IDE.
 
-## Working of the code
+### Working of the code
 
 #### Defining the pins to be used:
  
@@ -115,13 +115,16 @@ Now, the `echoPin` is read which recieves a HIGH pulse from the **Echo pin** of 
     digitalWrite(Valve, HIGH); //Turns off the solenoid water valve
    }
  ```
+ ## Implementation
+ <img src="https://user-images.githubusercontent.com/63898803/83333320-91642700-a2bd-11ea-9059-843baad686dd.jpeg" width=650 height=400>
+ The implementation is done using Arduino Pro Mini.
 
- # Credits
+ ## Credits
  
  
  
  
- # Contributing
+ ## Contributing
  Contributions to this project are released to the public under the project's open source license.
 
 This project adheres to a Code of Conduct. By participating, you are expected to honor this code.
