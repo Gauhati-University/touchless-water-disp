@@ -120,7 +120,7 @@ Now, the `echoPin` is read which recieves a HIGH pulse from the **Echo pin** of 
  The implementation is done using Arduino Pro Mini.
 
  ## Credits
- 
+ The contributors of this project are : Utpal Sharma, Rajdeep Choudhury, Nairit Barkataki, Tilak Deka and Sharmistha Mazumdar.
  
  
  
@@ -129,16 +129,8 @@ Now, the `echoPin` is read which recieves a HIGH pulse from the **Echo pin** of 
 
 This project adheres to a Code of Conduct. By participating, you are expected to honor this code.
 
-This library's only job is to decide which markup format to use and call out to an external library to convert the markup to HTML (see the README for more information on how markup is rendered on GitHub.com).
-
-If you are having an issue with:
-
-Syntax highlighting - see github/linguist
-Markdown on GitHub - contact support@github.com
-Styling issues on GitHub - see primer-markdown module in the primer/primer-css repository
-Anything else - search open issues or create an issue and and we'll help point you in the right direction.
  
  # License
  
- To the extent possible under law, Matias Singers has waived all copyright and related or neighboring rights to this work
+[Lincense](https://github.com/Gauhati-University/touchless-water-disp/blob/master/LICENSE) contains rights to this work
  
