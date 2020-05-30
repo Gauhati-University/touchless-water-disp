@@ -46,7 +46,7 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 
 To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs. The transmitter will then send out an 8 cycle sonic burst which will travel at the speed of sound and will be received by the receiver. The **Echo** Pin emits a pulse whose width is in proportion to the distance travelled by the sound wave. The time duration between transmission and reception can be used to determine the distance to the object as the speed of sound is known.
 
-![uploads2ftmp2f0e8762c9-13ef-48e3-8ee9-838c7f24ca8d2f2_ultrasonic_module_timing_diagram_IoXUGXtipu](https://user-images.githubusercontent.com/63898803/83060198-b9167d80-a078-11ea-8b52-48c3cdfcbdfb.jpg)
+<img src="https://user-images.githubusercontent.com/63898803/83060198-b9167d80-a078-11ea-8b52-48c3cdfcbdfb.jpg" width=500>
 
 ## Code
 
@@ -115,8 +115,14 @@ Now, the `echo` pin is read which recieves a HIGH pulse from the **Echo pin** of
     digitalWrite(Valve, HIGH); //Turns off the solenoid water valve
    }
  ```
+ 
+ ## Testing
+ [![license-apache](https://img.shields.io/badge/Tested%20on-UNO%2C%20Pro%20Mini-orange)](https://github.com/Gauhati-University/touchless-water-disp)
+ 
+ The circuit was tested on Arduino UNO and Arduino Pro Mini
+ 
  ## Implementation
- <img src="https://user-images.githubusercontent.com/63898803/83333320-91642700-a2bd-11ea-9059-843baad686dd.jpeg" width=650>
+ <img src="https://user-images.githubusercontent.com/63898803/83333320-91642700-a2bd-11ea-9059-843baad686dd.jpeg" width=600>
  The circuit is implemented on a custom development board based on Arduino Pro Mini.
 
  ## Credits
@@ -124,6 +130,7 @@ Now, the `echo` pin is read which recieves a HIGH pulse from the **Echo pin** of
  
  ## Contributing
  [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+ 
  Contributions to this project are releasedto the public under the [project's open source license](LICENSE).
 
 This project adheres to a [Code of Conduct][code-of-conduct]. By participating, you are expected to honor this code.
