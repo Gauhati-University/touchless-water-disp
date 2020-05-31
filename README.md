@@ -36,9 +36,6 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 2. The transmitted signal travels through air and reflects when incident on the surface of the object (in this case our hand).
 3. The reciever recieves the reflected signal.
  
-### Pin Out Diagram of HC SR04 Ultrasonic Sensor:
-<img src = "https://user-images.githubusercontent.com/63898803/83054937-c92a5f00-a070-11ea-8b26-05271b1ce2f5.jpg" width = 350>
-
 | Pins | Usage |
 |:----:|:--------------:|
 | VCC | +5V |
@@ -50,12 +47,23 @@ To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs.The tr
 
 ![uploads2ftmp2f0e8762c9-13ef-48e3-8ee9-838c7f24ca8d2f2_ultrasonic_module_timing_diagram_IoXUGXtipu](https://user-images.githubusercontent.com/63898803/83060198-b9167d80-a078-11ea-8b52-48c3cdfcbdfb.jpg)
 
-The solenoid valve is which is normally closed.It is controlled by the microcontroller (Arduino Uno) using a relay. The relay in this case is in normally open and connects the AC power source to the Solenoid valve depending upon the signal coming from the Arduino.
-* The transistor used in with the relay is used a switch. The transistor is ON when digital Pin 11 is in HIGH state leading to flow of current through the coils of the relay.
-* The energized magnetic coils of the relay connects the AC power to the Solenoid valve.
-* The power supplied opens the valve by energizing the solenoid coil and allows the liquid to flow through it.
-* When the digital Pin 11 is in LOW state the transistor is OFF leading to no flow of current but the energy stored relay coils of the form of magnetic field leads to spike in the voltage across the relay coil that might damage the transistor.
-* To prevent the transistor from damge, a diode, also called [flywheel diode](https://www.electronics-tutorials.ws/blog/relay-switch-circuit.html), clamps the reverse voltage across the coil to about 0.7V dissipating the stored energy and protecting the switching transistor.
+### Relay:
+The [Relay](http://www.circuitstoday.com/working-of-relays) is an electronic Switch and is used in normally open mode.The main job of the relay is to connect or disconnect the Solenoid Valve to the AC power source depending upon the control signal coming from the Arduino. The Relay is used along with a Transistor and diode as shown in the figure below.
+
+
+<img src = "https://user-images.githubusercontent.com/63898803/83359725-bd54da80-a399-11ea-89f4-378f80060193.jpeg" width=400>
+
+
+The relay needs 12V on the input to turn on. The transistor is working a switch between the 12V source and the relay. The AC source is connected to common pin and the solenoid valve on the NO (Normal Open contact) pin of the relay. Once the relay coil is energized the contact between the two pins are developed.
+The diode provides protection against reverse voltage across the relay coils when the transistor is non conducting.
+
+### Valve:
+<img src = "https://instrumentationtools.com/wp-content/uploads/2016/01/instrumentationtools.com_direct-operated-direct-acting-solenoid-valves.png" width=400>
+The Solenoid valve is a electrically controlled valve.In this project, the orfice of the valve is normally closed and the relay controls it.
+The Solenoid coils gets energized on connection to the AC source leading to pulling the plunger. This leads to openning of the orfice and flow of the liquid. Once the power source gets disconnected from the Valve, the spring pushes the plunger down to its orginal position preventing the flow of liquid.
+
+
+
 ## Code
 
 The code can be found at [arduino.ino](https://github.com/Gauhati-University/touchless-water-disp/blob/master/Program/arduino/arduino.ino).
