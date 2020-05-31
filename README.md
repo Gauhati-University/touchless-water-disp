@@ -50,16 +50,12 @@ To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs.The tr
 
 ![uploads2ftmp2f0e8762c9-13ef-48e3-8ee9-838c7f24ca8d2f2_ultrasonic_module_timing_diagram_IoXUGXtipu](https://user-images.githubusercontent.com/63898803/83060198-b9167d80-a078-11ea-8b52-48c3cdfcbdfb.jpg)
 
-### Valve:
-A [solenoid valve](https://tameson.com/solenoid-valve-types.html) is a electrically controlled valve. In absence of power, the solenoid is normally closed. The solenoid has an electromagnetically inductive coil (A) around an iron core at the center called the plunger (E)as shown in figure.The shading ring (C) prevents vibration and humming in AC coils.
-<img src = "https://cdn2.tameson.com/var/assets/Articles/general/xsolenoid-valve-components.png.pagespeed.ic.WODEOUdhFI.webp" width =400>
- 1. When current flows through the solenoid, the coil is energized and creates a magnetic field. 
- 2. This creates a magnetic attraction with the plunger, moving it and overcoming the spring (D) force. 
- 3. If the valve is closed, the plunger is lifted so that the seal (F) opens the orifice and allows the flow of the media through the valve.
- 
- ### Relay:
- Relay is an Electronic switch.It can connect or disconnect two circuits depending upon the
-
+The solenoid valve is which is normally closed.It is controlled by the microcontroller (Arduino Uno) using a relay. The relay in this case is in normally open and connects the AC power source to the Solenoid valve depending upon the signal coming from the Arduino.
+* The transistor used in with the relay is used a switch. The transistor is ON when digital Pin 11 is in HIGH state leading to flow of current through the coils of the relay.
+* The energized magnetic coils of the relay connects the AC power to the Solenoid valve.
+* The power supplied opens the valve by energizing the solenoid coil and allows the liquid to flow through it.
+* When the digital Pin 11 is in LOW state the transistor is OFF leading to no flow of current but the energy stored relay coils of the form of magnetic field leads to spike in the voltage across the relay coil that might damage the transistor.
+* To prevent the transistor from damge, a diode, also called [flywheel diode](https://www.electronics-tutorials.ws/blog/relay-switch-circuit.html), clamps the reverse voltage across the coil to about 0.7V dissipating the stored energy and protecting the switching transistor.
 ## Code
 
 The code can be found at [arduino.ino](https://github.com/Gauhati-University/touchless-water-disp/blob/master/Program/arduino/arduino.ino).
