@@ -29,7 +29,7 @@ Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens
 
 ### Sensor:
 
-<img src = "https://user-images.githubusercontent.com/63898803/83060901-c7b16480-a079-11ea-976e-b8040626194e.jpg" width = 650>
+<img src = "https://user-images.githubusercontent.com/63898803/83060901-c7b16480-a079-11ea-976e-b8040626194e.jpg" width = 500>
 
 The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. The sensor uses sonar to determine the distance to an object.
 1. The transmitter transmits a high frequency signal of 40kHz.
@@ -50,7 +50,8 @@ To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs.The tr
 ### Relay:
 
 <img src = "https://www.circuitbasics.com/wp-content/uploads/2015/11/5V-Relay-Pinout1-1024x478.png" width=400>
-After the determination of the distance, the faucet of the Solenoid valve needs to  open or close, depending upon the control signal from the Arduino, is done using a relay by connecting or disconnecting the valve to the AC source. The AC source is connected to **C** terminal and the Solenoid valve to the **NO** terminal of the relay as shown in the figure. Here the relay, used in normally open configuration, upon recieving a HIGH signal at the **Signal** terminal from the Arduino allows the current to flow from **C** terminal to **NO** terminal. 
+
+After the determination of the distance, the faucet of the Solenoid valve needs to  open or close, depending upon the control signal from the Arduino, is done using a relay by connecting or disconnecting the valve to the AC source. The AC source is connected to **C** terminal and the Solenoid valve to the NO terminal of the relay as shown in the figure. Here the relay, used in normally open configuration, upon recieving a HIGH signal at the **Signal** terminal from the Arduino allows the current to flow from **C** terminal to **NO** terminal. 
 
 <img src = "https://user-images.githubusercontent.com/63898803/83359725-bd54da80-a399-11ea-89f4-378f80060193.jpeg" width=400>
 
