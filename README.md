@@ -5,7 +5,7 @@
 Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens and closes a faucet so that we can wash our hands safely and prevent spread of coronavirus disease. For detecting our hand when placed just below the valve we use an ultrasonic sensor and that leads to opening the valve.
 
 ## Materials Required
-* Arduino UNO / Pro Mini (5V, 16MHz)
+* Arduino
 * HC-SR04 ultrasonic sensor
 * Transistor: BC547
 * Diode: 1N4001
@@ -57,10 +57,15 @@ For a range of obstacle distance (say between 10cm and 60cm), the faucet of the 
 
 <img src = "https://user-images.githubusercontent.com/63898803/83359725-bd54da80-a399-11ea-89f4-378f80060193.jpeg" width=400>
 
-The coil of a relay draws a relatively large current (activation current), typically 30mA for a 12V relay, but it can be as much as 100mA for other relays. But the Arduino UNO provides an output current of ~40mA. A transistor is used between the Arduino and the relay as a buffer to provide the required activation current to the relay.
-The transistor used should be able to operate on more than 20% of the activation current (for safety purpose) of the relay (which can be found from the datasheet) and must have suffiecient a value of h<sub>fe</sub>(gain) to amplify the base current(in few mA) to the collector current required by the relay.
-The flyback diode is connected to the relay coils to protect the transistor and the Arduino.
-A resistor is used between the transistor and arduino to limit the base current to protect the Arduino pin from damage.
+The following precautions should be kept in mind:
+
+* The coil of a relay draws a relatively large current (activation current), typically 30mA for a 12V relay, but it can be as much as 100mA for other relays. But the Arduino provides an output current of ~40mA. A transistor is used between the Arduino and the relay as a buffer to provide the required activation current to the relay.
+
+* The transistor used should be able to operate on more than 20% of the activation current (for safety purpose) of the relay (which can be found from the datasheet) and must have suffiecient a value of h<sub>fe</sub> (gain) to amplify the base current (in few mA) to the collector current required by the relay.
+
+* The flyback diode is connected to the relay coils to protect the transistor and the Arduino.
+
+* A resistor is used between the transistor and arduino to limit the base current to protect the Arduino pin from damage.
 
 
 ### Valve:
@@ -138,7 +143,7 @@ Now, the `echo` pin is read which recieves a HIGH pulse from the **Echo pin** of
  ## Testing
  [![license-apache](https://img.shields.io/badge/Tested%20on-UNO%2C%20Pro%20Mini-orange)](https://github.com/Gauhati-University/touchless-water-disp)
  
- The circuit was tested on Arduino UNO and Arduino Pro Mini
+ The circuit was tested on Arduino UNO and Arduino Pro Mini (5V, 16MHz)
  
  ## Implementation
  <img src="https://user-images.githubusercontent.com/63898803/83333320-91642700-a2bd-11ea-9059-843baad686dd.jpeg" width=600>
