@@ -32,7 +32,7 @@ Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens
 <img src = "https://user-images.githubusercontent.com/63898803/83060901-c7b16480-a079-11ea-976e-b8040626194e.jpg" width = 650>
 
 The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. The sensor uses sonar to determine the distance to an object.
-1. The transmitter transmit a high frequency signal of 40kHz.
+1. The transmitter transmits a high frequency signal of 40kHz.
 2. The transmitted signal travels through air and reflects when incident on the surface of the object (in this case our hand).
 3. The reciever recieves the reflected signal.
  
@@ -50,21 +50,21 @@ To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs.The tr
 ### Relay:
 
 <img src = "https://www.circuitbasics.com/wp-content/uploads/2015/11/5V-Relay-Pinout1-1024x478.png" width=400>
-After the determination of the distance, the faucet of the Solenoid valve needs to  open or close, depending upon the control signal from the Arduino, is done using a relay by connecting or disconnecting the valve to the AC source. The AC source is connected to `C` terminal and the Solenoid valve to the `NO` terminal of the relay as shown in the figure. Here the relay, used in normally open configuration, upon recieving a HIGH signal at the `Signal` terminal from the Arduino allows current to flow from `C` terminal to `NO` terminal. 
+After the determination of the distance, the faucet of the Solenoid valve needs to  open or close, depending upon the control signal from the Arduino, is done using a relay by connecting or disconnecting the valve to the AC source. The AC source is connected to **C** terminal and the Solenoid valve to the **NO** terminal of the relay as shown in the figure. Here the relay, used in normally open configuration, upon recieving a HIGH signal at the **Signal** terminal from the Arduino allows the current to flow from **C** terminal to **NO** terminal. 
 
 <img src = "https://user-images.githubusercontent.com/63898803/83359725-bd54da80-a399-11ea-89f4-378f80060193.jpeg" width=400>
 
-A transistor is used from between the Arduino and the relay as the transistor can source more current as compared to that of an Arduino and saturates the voltage across the coil faster. This leads to faster switching of the relay. Also it protects the Arduino from the reverse voltage across the relay coils generated due to stored energy in the coils.
-
+The coil of a relay draws a relatively large current (called the activation current), typically 30mA for a 12V relay, but it can be as much as 100mA for relays designed to operate from lower voltages. But  Arduino Uno, based on  ATmega328P microcontroller, provides an output current of ~40mA and so  a transistor is usually used between the Arduino and the relay to amplify the small current to the larger value required for the relay coil. 
+The transistor used should be able to operate on more than 20% of the activation current (for safety purpose) of the relay (which can be found from the datasheet) and must have suffiecient a value of h<sub>fe</sub>(gain) to amplify the base current(in few mA) to the collector current required by the relay.
+The flyback diode is connected in reverse polarity parallel to the relay coils to allow a low resistance path for the reverse voltage spike to dissipate and thus, protecting the transistor and the Arduino. 
+A resistor is used between the transistor and arduino to limit the current to protect the Arduino pin from damage.
 
 
 
 
 ### Valve:
 <img src = "https://instrumentationtools.com/wp-content/uploads/2016/01/instrumentationtools.com_direct-operated-direct-acting-solenoid-valves.png" width=400>
-The solenoid valve is a electrically controlled valve.In this project, the orfice of the valve is normally closed and the relay controls it.
-The solenoid coils gets energized on connection to the AC source leading to pulling the plunger. This leads to openning of the orfice and flow of the liquid. Once the power source gets disconnected from the Valve, the spring pushes the plunger down to its orginal position preventing the flow of liquid.
-
+A Solenoid valve operates at ~250VAC/10A which is provided the AC power source. In normally closed configuration, when the solenoid coils get energized due to flow of current from the AC source via relay, the plunger gets pulled to open the faucet leading to flow of liquid (water). When the connection between the source and the Solenoid valve cuts off, the plunger retains its original position with the help of a spring which closes the faucet preventing the flow of liquid.
 
 
 ## Code
