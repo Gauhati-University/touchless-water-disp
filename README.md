@@ -20,14 +20,16 @@ Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens
 ## Circuit Diagram 
 
 ### Wire Connections of Arduino and Ultrasonic Sensor
-<img src = "https://user-images.githubusercontent.com/63898803/83017119-ba2bb880-a040-11ea-8c0a-70eec75fd980.jpeg" width=650>
+<img src = "https://user-images.githubusercontent.com/63898803/83017119-ba2bb880-a040-11ea-8c0a-70eec75fd980.jpeg" width=650> 
 
 
 ### Schematic Diagram
-<img src = "https://user-images.githubusercontent.com/63898803/83017678-b0568500-a041-11ea-992e-c3f2fd3a47b7.jpeg" width = 650>
+<img src = "https://user-images.githubusercontent.com/63898803/83017678-b0568500-a041-11ea-992e-c3f2fd3a47b7.jpeg" width = 650> 
 
 
 ## Working Principle
+
+### Sensor:
 
 <img src = "https://user-images.githubusercontent.com/63898803/83060901-c7b16480-a079-11ea-976e-b8040626194e.jpg" width = 650>
 
@@ -35,10 +37,7 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 1. The transmitter transmit an high frequency signal of 40kHz.
 2. The transmitted signal travels through air and reflects when incident on the surface of the object (in this case our hand).
 3. The reciever recieves the reflected signal.
-
-### Pin Out Diagram of HC SR04 Ultrasonic Sensor:
-<img src = "https://user-images.githubusercontent.com/63898803/83054937-c92a5f00-a070-11ea-8b26-05271b1ce2f5.jpg" width = 350>
-
+ 
 | Pins | Usage |
 |:----:|:--------------:|
 | VCC | +5V |
@@ -46,9 +45,26 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 | Echo | ECHO (Output) |
 | GND | GROUND |
 
-To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs. The transmitter will then send out an 8 cycle sonic burst which will travel at the speed of sound and will be received by the receiver. The **Echo** Pin emits a pulse whose width is in proportion to the distance travelled by the sound wave. The time duration between transmission and reception can be used to determine the distance to the object as the speed of sound is known.
+To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs.The transmitter will then send out an 8 cycle sonic burst which will travel at the speed of sound and will be received by the receiver. The **Echo** Pin emits a pulse whose width is in proportion to the distance travelled by the sound wave. The time duration between transmission and reception can be used to determine the distance to the object as the speed of sound is known.
 
 <img src="https://user-images.githubusercontent.com/63898803/83060198-b9167d80-a078-11ea-8b52-48c3cdfcbdfb.jpg" width=500>
+
+### Relay:
+The [Relay](http://www.circuitstoday.com/working-of-relays) is an electronic Switch and is used in normally open mode.The main job of the relay is to connect or disconnect the Solenoid Valve to the AC power source depending upon the control signal coming from the Arduino. The Relay is used along with a Transistor and diode as shown in the figure below.
+
+
+<img src = "https://user-images.githubusercontent.com/63898803/83359725-bd54da80-a399-11ea-89f4-378f80060193.jpeg" width=400>
+
+
+The relay needs 12V on the input to turn on. The transistor is working a switch between the 12V source and the relay. The AC source is connected to common pin and the solenoid valve on the NO (Normal Open contact) pin of the relay. Once the relay coil is energized the contact between the two pins are developed.
+The diode provides protection against reverse voltage across the relay coils when the transistor is non conducting.
+
+### Valve:
+<img src = "https://instrumentationtools.com/wp-content/uploads/2016/01/instrumentationtools.com_direct-operated-direct-acting-solenoid-valves.png" width=400>
+The Solenoid valve is a electrically controlled valve.In this project, the orfice of the valve is normally closed and the relay controls it.
+The Solenoid coils gets energized on connection to the AC source leading to pulling the plunger. This leads to openning of the orfice and flow of the liquid. Once the power source gets disconnected from the Valve, the spring pushes the plunger down to its orginal position preventing the flow of liquid.
+
+
 
 ## Code
 
