@@ -43,7 +43,7 @@ The HC-SR04 Ultrasonic sensor comes with both reciever and transmitter modules. 
 | Echo | ECHO (Output) |
 | GND | GROUND |
 
-To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs.The transmitter will then send out an 8 cycle sonic burst which will travel at the speed of sound and will be received by the receiver. The **Echo** Pin emits a pulse whose width is in proportion to the distance travelled by the sound wave. The time duration between transmission and reception can be used to determine the distance to the object as the speed of sound is known.
+To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs. The transmitter will then send out an 8 cycle sonic burst which will travel at the speed of sound, get reflected by an object and will be received by the receiver. The **Echo** Pin emits a pulse whose width is in proportion to the distance travelled by the sound wave. The time duration between transmission and reception can be used to determine the distance to the object as the speed of sound is known.
 
 ![uploads2ftmp2f0e8762c9-13ef-48e3-8ee9-838c7f24ca8d2f2_ultrasonic_module_timing_diagram_IoXUGXtipu](https://user-images.githubusercontent.com/63898803/83060198-b9167d80-a078-11ea-8b52-48c3cdfcbdfb.jpg)
 
@@ -51,20 +51,19 @@ To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs.The tr
 
 <img src = "https://www.circuitbasics.com/wp-content/uploads/2015/11/5V-Relay-Pinout1-1024x478.png" width=400>
 
-After the determination of the distance, the faucet of the Solenoid valve needs to  open or close, depending upon the control signal from the Arduino, is done using a relay by connecting or disconnecting the valve to the AC source. The AC source is connected to **C** terminal and the Solenoid valve to the NO terminal of the relay as shown in the figure. Here the relay, used in normally open configuration, upon recieving a HIGH signal at the **Signal** terminal from the Arduino allows the current to flow from **C** terminal to **NO** terminal. 
+For a range of obstacle distance (say between 10cm and 60cm), the faucet of the solenoid valve needs to open. For all other cases, valve will be closed. This is done using a relay by connecting or disconnecting the valve to the AC source. The AC source is connected to **C** terminal and the solenoid valve to the **NO** terminal of the relay as shown in the figure. Here the relay, used in normally open configuration, upon recieving a HIGH signal at the **Signal** terminal from the Arduino allows the current to flow from **C** terminal to **NO** terminal. 
 
 <img src = "https://user-images.githubusercontent.com/63898803/83359725-bd54da80-a399-11ea-89f4-378f80060193.jpeg" width=400>
 
-The coil of a relay draws a relatively large current (called the activation current), typically 30mA for a 12V relay, but it can be as much as 100mA for relays designed to operate from lower voltages. But  Arduino Uno, based on  ATmega328P microcontroller, provides an output current of ~40mA and so  a transistor is usually used between the Arduino and the relay to amplify the small current to the larger value required for the relay coil. 
+The coil of a relay draws a relatively large current (activation current), typically 30mA for a 12V relay, but it can be as much as 100mA for other relays. But the Arduino UNO provides an output current of ~40mA. A transistor is used between the Arduino and the relay as a buffer to provide the required activation current to the relay.
 The transistor used should be able to operate on more than 20% of the activation current (for safety purpose) of the relay (which can be found from the datasheet) and must have suffiecient a value of h<sub>fe</sub>(gain) to amplify the base current(in few mA) to the collector current required by the relay.
-The flyback diode is connected in reverse polarity parallel to the relay coils to allow a low resistance path for the reverse voltage spike to dissipate and thus, protecting the transistor and the Arduino. 
-A resistor is used between the transistor and arduino to limit the current to protect the Arduino pin from damage.
-
-
+The flyback diode is connected to the relay coils to protect the transistor and the Arduino.
+A resistor is used between the transistor and arduino to limit the base current to protect the Arduino pin from damage.
 
 
 ### Valve:
 <img src = "https://instrumentationtools.com/wp-content/uploads/2016/01/instrumentationtools.com_direct-operated-direct-acting-solenoid-valves.png" width=400>
+
 A Solenoid valve operates at ~250VAC/10A which is provided the AC power source. In normally closed configuration, when the solenoid coils get energized due to flow of current from the AC source via relay, the plunger gets pulled to open the faucet leading to flow of liquid (water). When the connection between the source and the Solenoid valve cuts off, the plunger retains its original position with the help of a spring which closes the faucet preventing the flow of liquid.
 
 
