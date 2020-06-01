@@ -2,9 +2,9 @@
 
 # Touchless Water Dispenser
 ## Description
-Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens and closes a faucet so that we can wash our hands safely and prevent spread of coronavirus disease. For detecting our hand when placed just below the valve we use an ultrasonic sensor and that leads to opening the valve.
+Touchless Water Dispenser using Arduino and a solenoid valve automatically opens and closes a faucet so that we can wash our hands safely and prevent spread of coronavirus disease. For detecting a hand / body, an ultrasonic sensor is used.
 
-## Materials Required
+## Materials Used
 * Arduino
 * HC-SR04 ultrasonic sensor
 * Transistor: BC547
@@ -12,7 +12,7 @@ Touchless Water Dispenser using Arduino and a Solenoid valve automatically opens
 * Resistors and Capacitors
 * Relay (5V or 12V)
 * Solenoid Valve
-* Power Supply: +5V DC (from Arduino),+12V DC and 230V AC
+* Power Supply: +5V DC (from Arduino), +12V DC and 230V AC
 * Power Plugs
 * Connecting Wires
 * PCB
@@ -53,11 +53,11 @@ To generate the ultrasound signal the **Trig** pin must be HIGH for 10µs. The t
 
 <img src = "https://www.circuitbasics.com/wp-content/uploads/2015/11/5V-Relay-Pinout1-1024x478.png" width=400>
 
-For a range of obstacle distance (say between 10cm and 60cm), the faucet of the solenoid valve needs to open. For all other cases, valve will be closed. This is done using a relay by connecting or disconnecting the valve to the AC source. The AC source is connected to **C** terminal and the solenoid valve to the **NO** terminal of the relay as shown in the figure. Here the relay, used in normally open configuration, upon recieving a HIGH signal at the **Signal** terminal from the Arduino allows the current to flow from **C** terminal to **NO** terminal. 
+When a hand or body is present within a range of distance (say between 10cm and 60cm), the solenoid valve will open. For all other cases, valve will be closed. This is done using a relay by connecting or disconnecting the valve to the AC source. The AC source is connected to **C (common)** terminal and the solenoid valve to the **NO (normally open)** terminal of the relay as shown in the figure. Here the relay, used in normally open configuration, upon recieving a HIGH signal at the **Signal** terminal from the Arduino allows the current to flow from **C** terminal to **NO** terminal. 
 
 <img src = "https://user-images.githubusercontent.com/63898803/83359725-bd54da80-a399-11ea-89f4-378f80060193.jpeg" width=400>
 
-The following precautions should be kept in mind:
+The following points should be kept in mind:
 
 * The coil of a relay draws a relatively large current (activation current), typically 30mA for a 12V relay, but it can be as much as 100mA for other relays. But the Arduino provides an output current of ~40mA. A transistor is used between the Arduino and the relay as a buffer to provide the required activation current to the relay.
 
